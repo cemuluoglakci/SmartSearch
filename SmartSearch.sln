@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartSearchExperiments", "SmartSearchExperiments\SmartSearchExperiments.csproj", "{7D49F932-A46E-4404-BB76-0F606AC4C49F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Experimental", "Experimental", "{D93C81F3-D402-4A46-8DA6-A5DAA04B7965}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D49F932-A46E-4404-BB76-0F606AC4C49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D49F932-A46E-4404-BB76-0F606AC4C49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D49F932-A46E-4404-BB76-0F606AC4C49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D49F932-A46E-4404-BB76-0F606AC4C49F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7D49F932-A46E-4404-BB76-0F606AC4C49F} = {D93C81F3-D402-4A46-8DA6-A5DAA04B7965}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4959A2FD-949C-4B91-A7B7-8440F521730B}
+	EndGlobalSection
+EndGlobal
