@@ -365,3 +365,6 @@ FodyWeavers.xsd
 /SmartSearchExperiments/properties_test.json
 /SmartSearchExperiments/properties.json
 /SmartSearchExperiments/mgmt.json
+/SmartSearchAPI/Properties/launchSettings.json
+/SmartSearchAPI/appsettings.json
+/SmartSearchAPI/appsettings.Development.json
