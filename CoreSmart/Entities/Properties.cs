@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CoreSmart.Entities
 {
-    class Properties
+    public class Properties
     {
         public int PropertyID { get; set; }
         public string Name { get; set; }
