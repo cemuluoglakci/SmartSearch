@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/SmartSearchExperiments/properties_test0.json
+/SmartSearchExperiments/properties_test.json
+/SmartSearchExperiments/properties.json
+/SmartSearchExperiments/mgmt.json
