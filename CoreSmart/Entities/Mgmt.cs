@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CoreSmart.Entities
 {
-    class Mgmt
+    public class Mgmt
     {
         public int MgmtID { get; set; }
         public string Name { get; set; }
