@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+	<PropertyGroup>
+		<LangVersion>5.0</LangVersion>
+		<AppDesignerFolder>PropertyList</AppDesignerFolder>
+	</PropertyGroup>
+	<ItemGroup>
+	  <PackageReference Include="AutoMapper" Version="10.1.1" />
+	  <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+	  <PackageReference Include="FluentValidation" Version="10.3.6" />
+	  <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.6" />
+	  <PackageReference Include="MediatR" Version="9.0.0" />
+	  <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.22" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\CoreSmart\CoreSmart.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Property\Commands\" />
+	  <Folder Include="Property\Queries\GetPropertyDetail\" />
+	</ItemGroup>
+</Project>
