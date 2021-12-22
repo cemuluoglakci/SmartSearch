@@ -11,8 +11,8 @@ namespace ApplicationSmart.MediaTrHelpers
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerf<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestVal<,>));
+            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerf<,>));
+            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestVal<,>));
             return services;
         }
 

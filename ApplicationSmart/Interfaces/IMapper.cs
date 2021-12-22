@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
 
-namespace ApplicationSmart.Abstracts
+namespace ApplicationSmart.Interfaces
 {
-    public interface Mapper <T>
+    public interface IMapper <T>
     {
         void Mapping(Profile profile);
-
-
     }
 }

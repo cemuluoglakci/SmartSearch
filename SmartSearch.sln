@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfrastructureSmartDB", "In
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{23A531D6-253B-4469-93AB-ACC670DF98FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartSearchAPI", "SmartSearchAPI\SmartSearchAPI.csproj", "{5504CBCE-F922-41AC-9D45-445FB17F015F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartSearchAPI", "SmartSearchAPI\SmartSearchAPI.csproj", "{5504CBCE-F922-41AC-9D45-445FB17F015F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfrastructureSmartES", "InfrastructureSmartES\InfrastructureSmartES.csproj", "{AD8A5442-A52D-4F72-AEAD-DAFB39DD5426}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{5504CBCE-F922-41AC-9D45-445FB17F015F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5504CBCE-F922-41AC-9D45-445FB17F015F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5504CBCE-F922-41AC-9D45-445FB17F015F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD8A5442-A52D-4F72-AEAD-DAFB39DD5426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD8A5442-A52D-4F72-AEAD-DAFB39DD5426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD8A5442-A52D-4F72-AEAD-DAFB39DD5426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD8A5442-A52D-4F72-AEAD-DAFB39DD5426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{C2C7C569-5E0A-4EDF-9145-87CD5BFD76BA} = {C6DAE4DC-FF25-4A54-90D6-358C7D5C8156}
 		{23A531D6-253B-4469-93AB-ACC670DF98FE} = {A04DCBA8-E2CE-4629-805E-64A4AD029E2B}
 		{5504CBCE-F922-41AC-9D45-445FB17F015F} = {23A531D6-253B-4469-93AB-ACC670DF98FE}
+		{AD8A5442-A52D-4F72-AEAD-DAFB39DD5426} = {C6DAE4DC-FF25-4A54-90D6-358C7D5C8156}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4959A2FD-949C-4B91-A7B7-8440F521730B}

@@ -2,6 +2,7 @@ using ApplicationSmart.Interfaces;
 using ApplicationSmart.MediaTrHelpers;
 using FluentValidation.AspNetCore;
 using InfrastructureSmartDB;
+using InfrastructureSmartES;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +38,8 @@ namespace SmartSearchAPI
 
 
             services.AddInfrastructureServices(Configuration);
+
+            services.AddESInfrastructureServices();
 
             services.AddApplicationServices();
 
