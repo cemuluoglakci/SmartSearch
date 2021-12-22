@@ -1,16 +1,13 @@
-﻿using ApplicationSmart.Abstracts;
-using ApplicationSmart.Interfaces;
+﻿using ApplicationSmart.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ApplicationSmart.Properties.Queries.GetPropertiesList
+namespace ApplicationSmart.Property.Queries.GetPropertiesList
 {
     public class GetPropertiesListQueryHandler : IRequestHandler<GetPropertiesListQuery, PropertiesListVm>
     {
@@ -27,7 +24,11 @@ namespace ApplicationSmart.Properties.Queries.GetPropertiesList
 
         public async Task<PropertiesListVm> Handle(GetPropertiesListQuery request, CancellationToken cancellationToken)
         {
-            var properties = await _context.Properties.ProjectTo<PropertyLookUpDto>(_mapper.ConfigurationProvider).ToListAsync(cancellationToken);
+            var properties = await _context.Properties
+                .ProjectTo<PropertyLookUpDto>(_mapper.ConfigurationProvider)
+                .OrderBy(i => i.Name)
+                .ToListAsync(cancellationToken);
+
             var vm = new PropertiesListVm
             {
                 Properties = properties,

@@ -2,12 +2,10 @@
 
 namespace ApplicationSmart.Abstracts
 {
-    public abstract class Mapper <T>
+    public interface Mapper <T>
     {
-        void Mapping(Profile profile)
-        {
-            profile.CreateMap(typeof(T), GetType());
-        }
+        void Mapping(Profile profile);
+
 
     }
 }
