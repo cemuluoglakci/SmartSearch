@@ -14,11 +14,11 @@ namespace InfrastructureSmartDB.Configurations
             builder.Property(e => e.Name)
                 .IsRequired();
 
-            builder.Property(e => e.FormerName).HasColumnType("ntext");
-            builder.Property(e => e.StreetAddress).HasColumnType("ntext");
-            builder.Property(e => e.City).HasColumnType("ntext");
-            builder.Property(e => e.Market).HasColumnType("ntext");
-            builder.Property(e => e.State).HasColumnType("ntext");
+            builder.Property(e => e.FormerName).HasColumnName("FormerName");
+            builder.Property(e => e.StreetAddress).HasColumnName("StreetAddress");
+            builder.Property(e => e.City).HasColumnName("City");
+            builder.Property(e => e.Market).HasColumnName("Market");
+            builder.Property(e => e.State).HasColumnName("State");
             builder.Property(e => e.Lat).HasColumnName("Lat"); 
             builder.Property(e => e.Lng).HasColumnName("Lng");
 

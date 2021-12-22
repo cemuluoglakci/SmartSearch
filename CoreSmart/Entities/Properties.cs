@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace CoreSmart.Entities
 {
     public class Properties
     {
+        [Key]
         public int PropertyID { get; set; }
         public string Name { get; set; }
         public string FormerName { get; set; }

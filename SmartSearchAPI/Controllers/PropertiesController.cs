@@ -1,4 +1,4 @@
-﻿using ApplicationSmart.Properties.Queries.GetPropertiesList;
+﻿using ApplicationSmart.Property.Queries.GetPropertiesList;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

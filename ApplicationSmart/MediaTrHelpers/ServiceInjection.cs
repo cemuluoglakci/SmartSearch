@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace ApplicationSmart
+namespace ApplicationSmart.MediaTrHelpers
 {
     public static class ServiceInjection
     {
@@ -11,7 +11,8 @@ namespace ApplicationSmart
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
-
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerf<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestVal<,>));
             return services;
         }
 

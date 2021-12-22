@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ApplicationSmart.Properties.Queries.GetPropertiesList
+namespace ApplicationSmart.Property.Queries.GetPropertiesList
 {
     public class PropertyLookUpDto: Mapper<CoreSmart.Entities.Properties>
     {

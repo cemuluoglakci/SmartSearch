@@ -368,3 +368,4 @@ FodyWeavers.xsd
 /SmartSearchAPI/Properties/launchSettings.json
 /SmartSearchAPI/appsettings.json
 /SmartSearchAPI/appsettings.Development.json
+/InfrastructureSmartDB/Migrations
