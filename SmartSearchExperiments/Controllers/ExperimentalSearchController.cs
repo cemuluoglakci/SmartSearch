@@ -81,17 +81,17 @@ namespace SmartSearchExperiments.Controllers
         [HttpGet("Load2ES")]
         public async Task<IActionResult> Load2ES()
         {
-            string fileName = "properties_test.json";
-            string indexName = "properties_test";
-            List<PropertiesIndexed> items = new List<PropertiesIndexed>();
+            string fileName = "mgmt.json";
+            string indexName = "mgmt";
+            List<MgmtIndexed> items = new List<MgmtIndexed>();
             using (StreamReader r = new StreamReader(fileName))
             {
                 string json = r.ReadToEnd();
-                items = JsonConvert.DeserializeObject<List<PropertiesIndexed>>(json);
+                items = JsonConvert.DeserializeObject<List<MgmtIndexed>>(json);
             }
 
-            var endpoint = new System.Uri(_config.GetValue<string>("smartsearch:endpoint"));
-            //endpoint = "https://search-smartsearch-25aeejmcjdzwer7ono5jdewkza.us-east-2.es.amazonaws.com";
+            //var endpoint = new System.Uri(_config.GetValue<string>("smartsearch:endpoint"));
+            var endpoint =  new System.Uri("https://search-smartsearch-25aeejmcjdzwer7ono5jdewkza.us-east-2.es.amazonaws.com");
             var settings = new ConnectionSettings(endpoint).DefaultIndex(indexName).DefaultFieldNameInferrer(p => p);
 
             var client = new ElasticClient(settings);
@@ -131,11 +131,11 @@ namespace SmartSearchExperiments.Controllers
         [HttpGet("CreateIndex")]
         public IActionResult CreateIndex()
         {
-            string indexName = "properties_test";
+            string indexName = "mgmt";
 
-            var endpoint = new System.Uri(_config.GetValue<string>("smartsearch:endpoint"));
-            //endpoint = "https://search-smartsearch-25aeejmcjdzwer7ono5jdewkza.us-east-2.es.amazonaws.com";
-            var settings = new ConnectionSettings(endpoint).DefaultIndex(indexName).DefaultFieldNameInferrer(p => p); ;
+            //var endpoint = new System.Uri(_config.GetValue<string>("Elastic:Addresses"));
+            var endpoint = "https://search-smartsearch-25aeejmcjdzwer7ono5jdewkza.us-east-2.es.amazonaws.com";
+            var settings = new ConnectionSettings(new System.Uri(endpoint)).DefaultIndex(indexName).DefaultFieldNameInferrer(p => p); 
             //        settings.MapPropertiesFor<MyClass>(props => props
             //.Rename(p => p.Foo, "bar")
             //.Ignore(p => p.Bar));
@@ -172,7 +172,7 @@ namespace SmartSearchExperiments.Controllers
                     )
                 )
             )
-            .Map<PropertiesIndexed>(mm => mm
+            .Map<MgmtIndexed>(mm => mm
                 .AutoMap()
                 //.Properties(p => p
                 //    .Text(t => t

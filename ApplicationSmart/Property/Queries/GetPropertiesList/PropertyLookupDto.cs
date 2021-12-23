@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ApplicationSmart.Property.Queries.GetPropertiesList
 {
-    public class PropertyLookUpDto: IMapper<PropertiesIndexed>
+    public class PropertyLookUpDto : IMapper<PropertiesIndexed>
     {
         public string Type { get; set; }
         public string Id { get; set; }

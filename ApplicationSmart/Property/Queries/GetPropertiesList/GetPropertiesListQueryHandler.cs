@@ -1,10 +1,7 @@
 ﻿using ApplicationSmart.Interfaces;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using CoreSmart.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Nest;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +24,17 @@ namespace ApplicationSmart.Property.Queries.GetPropertiesList
         public async Task<PropertiesListVm> Handle(GetPropertiesListQuery request, CancellationToken cancellationToken)
         {
             var client = _ESContext.GetClient();
-            var searchResponse = await client.SearchAsync<PropertiesIndexed>(m => m.Index("properties"));
+            var testList = new[] { "DFW" };
+            var searchResponse = await client.SearchAsync<PropertiesIndexed>(m => m.Index("properties").Query(q => q.Bool(bq => bq
+                         .Filter(
+                             fq => fq.Terms(t => t.Field("Property.Market").Terms(testList))
+                             
+                        )
+                    )
+                )
+            );
+
+
             var PropertyList = searchResponse.Documents.ToList();
             var PropertyLookupList = _mapper.Map<List<PropertiesIndexed>, List<PropertyLookUpDto>>(PropertyList);
             var vm = new PropertiesListVm
