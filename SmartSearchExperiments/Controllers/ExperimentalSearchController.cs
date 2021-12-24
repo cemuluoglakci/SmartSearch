@@ -47,16 +47,16 @@ namespace SmartSearchExperiments.Controllers
                                                )
                                    )
                                    )));
-            
+
             return Ok(searchResponse0.Documents);
 
 
         }
         [HttpGet("LoadProperties")]
-        public async Task<IActionResult> LoadProperties()
+        public IActionResult LoadProperties()
         {
-            string fileName = "properties.json";
-            string indexName = "properties";
+            string fileName = "properties_test.json";
+            string indexName = "properties_test";
             List<PropertiesIndexed> items = new List<PropertiesIndexed>();
             using (StreamReader r = new StreamReader(fileName))
             {
@@ -64,7 +64,7 @@ namespace SmartSearchExperiments.Controllers
                 items = JsonConvert.DeserializeObject<List<PropertiesIndexed>>(json);
             }
 
-            var endpoint =  new System.Uri("https://search-smartsearch-25aeejmcjdzwer7ono5jdewkza.us-east-2.es.amazonaws.com");
+            var endpoint = new System.Uri("https://search-smartsearch-25aeejmcjdzwer7ono5jdewkza.us-east-2.es.amazonaws.com");
             var settings = new ConnectionSettings(endpoint).DefaultIndex(indexName).DefaultFieldNameInferrer(p => p);
 
             var client = new ElasticClient(settings);
@@ -86,7 +86,7 @@ namespace SmartSearchExperiments.Controllers
         [HttpGet("LoadMgmt")]
         public IActionResult LoadMgmt()
         {
-            string fileName = "mgmt.json";
+            string fileName = "mgmt_filtered.json";
             string indexName = "mgmt";
             List<MgmtIndexed> items = new List<MgmtIndexed>();
             using (StreamReader r = new StreamReader(fileName))
@@ -107,7 +107,7 @@ namespace SmartSearchExperiments.Controllers
                 .MaxDegreeOfParallelism(Environment.ProcessorCount)
                 .Size(1000)
             )
-                .Wait(TimeSpan.FromMinutes(2), next =>{});
+                .Wait(TimeSpan.FromMinutes(2), next => { });
 
             return Ok(bulkAllObservable.TotalNumberOfFailedBuffers);
         }
@@ -129,11 +129,10 @@ namespace SmartSearchExperiments.Controllers
         {
             string indexName = "mgmt";
 
-            //var endpoint = _config.GetValue<string>("Elastic:Addresses");
             var endpoint = "https://search-smartsearch-25aeejmcjdzwer7ono5jdewkza.us-east-2.es.amazonaws.com";
-            var settings = new ConnectionSettings(new System.Uri(endpoint)).DefaultIndex(indexName).DefaultFieldNameInferrer(p => p); 
+            var settings = new ConnectionSettings(new System.Uri(endpoint)).DefaultIndex(indexName).DefaultFieldNameInferrer(p => p);
             var client = new ElasticClient(settings);
-            
+
             var resp = client.Indices.Create(indexName, c => c
             .Settings(s => s
                 .Analysis(a => a
@@ -145,6 +144,14 @@ namespace SmartSearchExperiments.Controllers
                                     ") => ",
                                     "* => ",
                                     ". => ",
+                                    "? => ",
+                                    "! => ",
+                                    ", => ",
+                                    "; => ",
+                                    ": => ",
+                                    "{ => ",
+                                    "} => ",
+                                    "' => ",
                             })
                         )
                     )
@@ -152,7 +159,7 @@ namespace SmartSearchExperiments.Controllers
                         .Custom("default", ca => ca
                             .CharFilters("html_strip", "remove_punctuations")
                             .Tokenizer("standard")
-                            .Filters("keyword_repeat", "lowercase", "porter_stem", "remove_duplicates", /*"ngram", "synonym",*/ "stop")
+                            .Filters("keyword_repeat", "lowercase", "porter_stem", "remove_duplicates", "stop")
                         )
                     )
                 )
@@ -188,7 +195,7 @@ namespace SmartSearchExperiments.Controllers
         [HttpGet("CreatePropertyIndex")]
         public IActionResult CreatePropertyIndex()
         {
-            string indexName = "properties";
+            string indexName = "properties_test";
             var endpoint = "https://search-smartsearch-25aeejmcjdzwer7ono5jdewkza.us-east-2.es.amazonaws.com";
             var settings = new ConnectionSettings(new System.Uri(endpoint)).DefaultIndex(indexName).DefaultFieldNameInferrer(p => p);
             var client = new ElasticClient(settings);
@@ -204,6 +211,14 @@ namespace SmartSearchExperiments.Controllers
                                     ") => ",
                                     "* => ",
                                     ". => ",
+                                    "? => ",
+                                    "! => ",
+                                    ", => ",
+                                    "; => ",
+                                    ": => ",
+                                    "{ => ",
+                                    "} => ",
+                                    "' => ",
                             })
                         )
                     )
@@ -211,7 +226,7 @@ namespace SmartSearchExperiments.Controllers
                         .Custom("default", ca => ca
                             .CharFilters("html_strip", "remove_punctuations")
                             .Tokenizer("standard")
-                            .Filters("keyword_repeat", "lowercase", "porter_stem", "remove_duplicates", /*"ngram", "synonym",*/ "stop")
+                            .Filters("keyword_repeat", "lowercase", "porter_stem", "remove_duplicates", "stop")
                         )
                     )
                 )
@@ -222,12 +237,12 @@ namespace SmartSearchExperiments.Controllers
                     .Object<Models.Properties>(o => o
                     .Name(n => n.Property)
                     .Properties(eps => eps
-                        .Text(s =>s
+                        .Text(s => s
                             .Name(n => n.Name)
-                            //.Analyzer("default")
+                        //.Analyzer("default")
                         )
                         .Text(s => s
-                            .Name(n => n.City)   
+                            .Name(n => n.City)
                         )
                         .Keyword(s => s
                             .Name(n => n.Market)
@@ -258,12 +273,6 @@ namespace SmartSearchExperiments.Controllers
             )
         )
         );
-
-            //var resp = client.Indices.Create("properties", i => i.Map<PropertiesIndexed>(x => x.AutoMap()));
-            //var resp2 = client.Indices.Create("mgmt", i => i.Map<MgmtIndexed>(x => x.AutoMap()));
-
-
-
             return Ok(resp.Index);
         }
 

@@ -1,5 +1,4 @@
-﻿using ApplicationSmart.ElasticsearchHelpers;
-using ApplicationSmart.Interfaces;
+﻿using ApplicationSmart.Interfaces;
 using AutoMapper;
 using CoreSmart.Interfaces;
 using MediatR;
@@ -20,7 +19,12 @@ namespace ApplicationSmart.CombinedSearch.FilteredSearch
             _ESContext = ESContext;
             _mapper = mapper;
         }
-
+        /// <summary>
+        /// Gets search input parameters from controller and queries a filtered search in the elasticsearch database.
+        /// </summary>
+        /// <param name="request"> HTTP request that includes FilteredSearchInput class type parameter</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Auto complete search suggestion list</returns>
         public async Task<FilteredSearchResultListVm> Handle(FilteredSearchInput request, CancellationToken cancellationToken)
         {
             var client = _ESContext.GetClient();

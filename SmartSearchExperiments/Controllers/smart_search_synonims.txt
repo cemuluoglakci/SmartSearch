@@ -1,0 +1,48 @@
+# Synonym words for SmartSearchAPI:
+
+corp., corp, corporation
+inc., inc, Incorporated
+llc., llc, Limited Liability Company
+
+# Address abbreviations taken from internet:
+# https://wmich.edu/writing/rules/addresses#abbreviations
+Boulevard, Blvd, Blvd.
+dr., dr, Drive
+rd., rd, road
+st., st, street
+pl., pl, place
+pkwy., pkwy, parkway
+hwy., hwy, highway
+ave., ave, avenue
+Apartment, Apt, Apt.
+Building, Bldg
+Center, Centers, Ctr
+Circles, Circle, Cir
+Court, Ct
+East, E
+Expressway, Expy
+Extension, Ext
+Fort, Ft
+Freeway, Fwy
+Heights, Hts
+Island, Is
+Junction, Jct
+Lane, Ln
+Mountain, Mount, Mt
+North, N
+Northeast, NE
+Northwest, NW
+Post Office, PO
+Rural Delivery, RD
+Rural Route, RR
+Saint, St
+South, S
+Southeast, SE
+Southwest, SW
+Spring, Spg
+Springs, Spgs
+Square, Sq
+Suite, Ste
+Terrace, Ter
+Turnpike, Tpke
+West, W
