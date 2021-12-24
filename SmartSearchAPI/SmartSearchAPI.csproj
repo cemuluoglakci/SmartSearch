@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InfrastructureSmartDB\InfrastructureSmartDB.csproj" />
+    <ProjectReference Include="..\InfrastructureSmartES\InfrastructureSmartES.csproj" />
   </ItemGroup>
 
 

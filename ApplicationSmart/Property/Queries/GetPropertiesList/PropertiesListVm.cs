@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ApplicationSmart.Interfaces;
+using AutoMapper;
+using CoreSmart.Entities;
 using System.Collections.Generic;
 using System.Text;
 

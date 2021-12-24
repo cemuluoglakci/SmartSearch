@@ -1,19 +1,20 @@
-﻿using System;
+﻿using CoreSmart.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace CoreSmart.Entities
 {
-    public class Properties
+    public class MgmtDocument : IDocument
     {
-        public int PropertyID { get; set; }
+        public int Id { get; set; }
+        public string Index { get; set; }
         public string Name { get; set; }
+        public string Market { get; set; }
+        public string State { get; set; }
         public string FormerName { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }
-        public string Market { get; set; }
-        public string State { get; set; }
         public float Lat { get; set; }
         public float Lng { get; set; }
     }
