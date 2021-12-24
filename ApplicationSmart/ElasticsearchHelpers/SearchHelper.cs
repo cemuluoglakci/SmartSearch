@@ -1,4 +1,4 @@
-﻿using ApplicationSmart.Combined;
+﻿using ApplicationSmart.CombinedSearch.BasicSearch;
 using ApplicationSmart.Interfaces;
 using CoreSmart.Entities;
 using Nest;

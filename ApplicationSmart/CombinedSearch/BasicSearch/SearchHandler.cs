@@ -1,15 +1,14 @@
 ﻿using ApplicationSmart.ElasticsearchHelpers;
+using ApplicationSmart.CombinedSearch;
 using ApplicationSmart.Interfaces;
 using AutoMapper;
-using CoreSmart.Entities;
 using MediatR;
-using Nest;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ApplicationSmart.Combined
+namespace ApplicationSmart.CombinedSearch.BasicSearch
 {
     public class SearchHandler : IRequestHandler<SearchInput, SearchResultListVm>
     {
@@ -37,22 +36,15 @@ namespace ApplicationSmart.Combined
                 .AllIndices()
                 .Query(q => (q
                    .QueryString(t => t
-                       //Check if default analyzer working
                        .Query(request.SearchPhrase))
                     && +q.Terms(t => t
                         .Field("_index")
                         .Terms(new[] { Index1, Index2 })
                         )
-                     && +q.Bool(bq => bq
-                        .Filter(
-                            //fq => fq.Terms(t => t.Field("Market").Terms(testList)),
-                            fq => fq.Terms(t => t.Field("State").Terms(request.StateList)))
-                        )
                     )
                 )
             );
-            //var ResultDtoList = searchResponse.Documents.ToList().Select(ResultDict => SearchHelper.GetDocumentDetails(ResultDict.First().Key, ResultDict.First().Value)).ToList();
-
+            
             var ResultList = searchResponse.Documents.ToList();
             var ResultDtoList = new List<SearchResultDto>();
             foreach (Dictionary<string, object> ResultDict in ResultList)

@@ -1,16 +1,14 @@
 ﻿using MediatR;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace ApplicationSmart.Combined
+namespace ApplicationSmart.CombinedSearch.FilteredSearch
 {
-    public class SearchInput : IRequest<SearchResultListVm>
+    public class FilteredSearchInput : IRequest<FilteredSearchResultListVm>
     {
         // Usually I use auto property initializer:
         // public int Limit { get; set; } = 25;
         // However, because of C#5, even it does not feel right, I will assign default value in constructor:
-        public SearchInput() 
+        public FilteredSearchInput()
         {
             Limit = 25;
         }

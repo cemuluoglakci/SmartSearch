@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartSearchAPI", "SmartSearchAPI\SmartSearchAPI.csproj", "{5504CBCE-F922-41AC-9D45-445FB17F015F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfrastructureSmartES", "InfrastructureSmartES\InfrastructureSmartES.csproj", "{AD8A5442-A52D-4F72-AEAD-DAFB39DD5426}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfrastructureSmartES", "InfrastructureSmartES\InfrastructureSmartES.csproj", "{AD8A5442-A52D-4F72-AEAD-DAFB39DD5426}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

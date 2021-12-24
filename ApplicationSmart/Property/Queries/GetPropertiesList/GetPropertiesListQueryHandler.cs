@@ -24,16 +24,18 @@ namespace ApplicationSmart.Property.Queries.GetPropertiesList
         public async Task<PropertiesListVm> Handle(GetPropertiesListQuery request, CancellationToken cancellationToken)
         {
             var client = _ESContext.GetClient();
-            var testList = new[] { "DFW" };
-            var searchResponse = await client.SearchAsync<PropertiesIndexed>(m => m.Index("properties").Query(q => q.Bool(bq => bq
-                         .Filter(
-                             fq => fq.Terms(t => t.Field("Property.Market").Terms(testList))
-                             
-                        )
-                    )
-                )
-            );
 
+            var searchResponse = await client.SearchAsync<PropertiesIndexed>(m => m.Index("properties"));
+            //var searchResponse = await client.SearchAsync<PropertiesIndexed>(m => m
+            //    .Query(q => q
+            //    .Bool(b=>b
+            //    .Must(must=>must
+
+            //    .Match(qs => qs
+            //    .Field(f=>f.Property.Market)
+            //    .Query("Atlanta"))
+
+            //))));
 
             var PropertyList = searchResponse.Documents.ToList();
             var PropertyLookupList = _mapper.Map<List<PropertiesIndexed>, List<PropertyLookUpDto>>(PropertyList);

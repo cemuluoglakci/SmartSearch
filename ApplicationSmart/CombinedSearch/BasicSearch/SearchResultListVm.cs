@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ApplicationSmart.Combined
+namespace ApplicationSmart.CombinedSearch.BasicSearch
 {
     public class SearchResultListVm
     {
